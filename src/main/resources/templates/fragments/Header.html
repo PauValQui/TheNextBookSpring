@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+	<!--Header estatico-->
+    <div class="Header" th:fragment="header">
+        <div class="Header__FirstBox">
+            <a href="/" class="Header__FirstBox__Enlace"><img th:src='@{/images/Logo.jpeg}' alt="logo" id="logo" class="Header__FirstBox__Enlace__Logo" /></a>
+            <form action="" method="post" class="Header__FirstBox__Search">
+              <div class="Header__FirstBox__Search__Box">
+                <input type="text" class="Search__Texto" name='texto' placeholder="¿Qué buscas?"/>
+                <button class="Search__Button"><img class="Search__Button__Img__Button" th:src="@{/images/IconosSVG/search.svg}" /></button>         
+              </div>
+            </form>
+            <div class="Header__FirstBox__ShopCart">
+                <a class="ShopCart__Link" href="/shopcart"><img class="Header__FirstBox__ShopCart__Link__Img" th:src="@{/images/IconosSVG/shopCart.png}" alt="Carrito"></a>           
+            </div>
+        </div>
+        <div class="Header__NavBar">
+          <ul class="Header__NavBar__ul">
+            <li>
+              <a href='/search/libros'>Libros</a>
+            </li>
+            <li>
+              <a href='/search/autores'>Autores</a>
+            </li>
+            <li>
+              <a href='/contact'>Contacto</a>
+            </li>
+          </ul>
+
+          <button class="Header__NavBar__BotonInicio">
+            <a href='/Login' class="Header__NavBar__BotonInicio__Enlace">Inicio Sesión</a>
+          </button>
+        </div>
+    </div>
+</body>
+</html>

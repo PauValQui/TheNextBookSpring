@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<!--Footer estatico-->
+    <div class="Footer" th:fragment="footer">
+        <div class="Footer__Box">
+            <img th:src='@{/images/Logo.jpeg}' alt='Logo' id='Logo' class='Footer__Box__Logo'/>
+            <div class='Footer__Box__Contact'>
+                <p>¿Tienes alguna duda?</p>
+                <a href='/contact'>Contactanos</a>
+            </div>
+        </div>
+        <div class="Footer__Copyright">
+            <p>Copyright 2022</p>
+        </div>
+    </div>
+</body>
+</html>

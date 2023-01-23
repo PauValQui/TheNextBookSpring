@@ -1,0 +1,15 @@
+@charset "ISO-8859-1";
+
+.Slider{
+	margin-top:1%;
+	width:100%;
+}
+
+.Slider__Box{
+	width:100%;
+	text-align:center;
+}
+
+.Slider__Box__Item{
+	width:100%;
+}

@@ -1,0 +1,148 @@
+body{
+	
+	margin: 0;
+}
+
+.Header{
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    height: 175px;
+}
+.Header__FirstBox{
+
+        background-color: #DEDEDE;
+        height: 60%;
+        display: flex;
+
+}
+
+.Header__FirstBox__Enlace{
+            width:10%;
+}
+
+.Header__FirstBox__Enlace__Logo{
+                width: 50%;
+                margin: 2%;
+            }
+
+.Header__FirstBox__Search{
+            height: 40px;
+            width: 50%;
+            margin: auto;
+}
+.Header__FirstBox__Search__Box{
+                display: flex;
+                height:90%;
+                }
+.Search__Texto{
+	display: flex;
+	width: 100%;
+}
+.Search__Button{
+    width: 7%;
+    padding: 0;
+}   
+.Search__Button__Img__Button{
+	width: 55%;
+}
+        
+.Header__FirstBox__ShopCart{
+            width: 5%;
+            margin: 1%;
+}
+.ShopCart__Link{
+                width: 50px;
+                height: 50px;
+}
+.Header__FirstBox__ShopCart__Link__Img{
+    width: 50%;
+	background-color: #DEDEDE;
+}
+
+
+.Header__NavBar{
+        background-color: #454142;
+        height: 40%;
+        display: flex;
+}
+.Header__NavBar__ul{
+            width: 90%;
+            text-align: center;
+            margin:0;
+}
+.Header__NavBar__ul li{
+                display: inline-flex;
+                border-radius: 8px;
+                transition: 0.3s ease;
+                margin: 10px;
+}
+.Header__NavBar__ul li:hover{
+                    background-color: #B5C78B;
+                }
+.Header__NavBar__ul li a:hover{
+ 	color:#454142;
+}
+
+.Header__NavBar__ul li a{
+                    display: inline-flex;
+                    text-decoration: none;
+                    padding: 1rem 1rem;
+                    font-size: 1rem;
+                    color: #B5C78B;
+                    outline: none;
+}
+
+
+.Header__NavBar__BotonInicio{
+            width: 10%;
+            margin: 1%;
+}
+.Header__NavBar__BotonInicio__Enlace{
+                color: #3A4408;
+                font-weight: bold;
+                text-decoration: none;
+                }
+    
+
+
+@media(min-width:320px) and (max-width:767px){
+
+	.Header__FirstBox__Enlace{
+	    width: 35%;
+	}
+	.Search__Texto{
+		width: 60%;
+		}
+	
+	.Header__FirstBox__ShopCart{
+		margin-top: 8%;
+	}
+	        
+	
+	.Header__NavBar__ul{
+	                width: 75%;
+	            }
+	.Header__NavBar__BotonInicio{
+	                width: 25%;
+	            }
+}
+
+@media(min-width:768px) and (max-width:1024px){
+
+	.Header__FirstBox__ShopCart__ShopCart{
+                margin-top: 5%;
+            }
+
+	.Header__NavBar__ul{
+                width: 85%;
+            }
+	.Header__NavBar__BotonInicio{
+                width: 15%;
+            }
+}
+
+
+

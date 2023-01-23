@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>The Next Book</title>
+<link href="/../css/Header.css" rel="stylesheet">
+<link href="/../css/Footer.css" rel="stylesheet">
+<link href="/../css/Home.css" rel="stylesheet">
+</head>
+<body>
+	<div th:insert="fragments/Header :: header"></div>
+	
+    <!-- Slider -->
+    <div class="Slider">
+        <div class="Slider__Box">
+                <div class="Slider__Box__Item" th:each="i : ${listaSlider}">
+                    <img th:src="@{/images/Slider/} + ${i}"  /> <!--llamar a la imagen del slider-->
+                </div>
+        </div>
+    </div>
+    
+    <div th:insert="fragments/Footer :: footer"></div>
+    
+    <script th:src="@{js/home.js}"></script>
+</body>
+</html>
