@@ -1,12 +1,34 @@
 package com.paula.thenextbook.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="Libro")
 public class Libro {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	
+	@Column(name = "titulo", nullable =false)
 	private String titulo;
+
+	@Column(name = "sinopsis")
 	private String sinopsis;
+	
+	@Column(name = "precio",nullable = false)
 	private double precio;
+	
+	@Column(name = "imagen", nullable = false)
 	private String imagen;
 	
+	private Integer idCategoria;
+	private Integer idAutor;
 	
 	public Integer getId() {
 		return id;
@@ -39,5 +61,17 @@ public class Libro {
 		this.imagen = imagen;
 	}
 	
+	public Integer getIdCategoria() {
+		return idCategoria;
+	}
+	public void setIdCategoria(Integer idCategoria) {
+		this.idCategoria = idCategoria;
+	}
+	public Integer getIdAutor() {
+		return idAutor;
+	}
+	public void setIdAutor(Integer idAutor) {
+		this.idAutor = idAutor;
+	}
 	
 }
