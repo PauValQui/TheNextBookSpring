@@ -51,6 +51,18 @@
 		</dependency>
 	</dependencies>
 
+	<dependencyManagement>
+	  <dependencies>
+	    <dependency>
+	      <groupId>org.springframework.data</groupId>
+	      <artifactId>spring-data-bom</artifactId>
+	      <version>2022.0.1</version>
+	      <scope>import</scope>
+	      <type>pom</type>
+	    </dependency>
+	  </dependencies>
+	</dependencyManagement>
+
 	<build>
 		<plugins>
 			<plugin>

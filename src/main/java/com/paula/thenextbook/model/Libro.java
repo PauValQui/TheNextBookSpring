@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,11 +26,16 @@ public class Libro {
 	@Column(name = "precio",nullable = false)
 	private double precio;
 	
-	@Column(name = "imagen", nullable = false)
-	private String imagen;
+	@Column(name = "foto", nullable = false)
+	private String foto;
 	
-	private Integer idCategoria;
-	private Integer idAutor;
+	@OneToOne
+	@JoinColumn(name="idCategoria")
+	private Categoria categoria;
+	
+	@OneToOne
+	@JoinColumn(name="idAutor")
+	private Autor autor;
 	
 	public Integer getId() {
 		return id;
@@ -54,24 +61,26 @@ public class Libro {
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
-	public String getImagen() {
-		return imagen;
+	public String getFoto() {
+		return foto;
 	}
-	public void setImagen(String imagen) {
-		this.imagen = imagen;
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
+	public Categoria getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+	public Autor getAutor() {
+		return autor;
+	}
+	public void setAutor(Autor autor) {
+		this.autor = autor;
+	}
+
 	
-	public Integer getIdCategoria() {
-		return idCategoria;
-	}
-	public void setIdCategoria(Integer idCategoria) {
-		this.idCategoria = idCategoria;
-	}
-	public Integer getIdAutor() {
-		return idAutor;
-	}
-	public void setIdAutor(Integer idAutor) {
-		this.idAutor = idAutor;
-	}
+	
 	
 }
