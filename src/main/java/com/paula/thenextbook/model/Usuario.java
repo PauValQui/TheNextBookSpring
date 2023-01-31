@@ -1,21 +1,30 @@
 package com.paula.thenextbook.model;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.persistence.Transient;
 
 @Entity
 @Table(name="Usuario")
-public class Usuario {
+public class Usuario implements Serializable{
+	
+	private static final long serialVersionUID = -6833167247955613395L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -33,6 +42,9 @@ public class Usuario {
 	@Column(name = "password", nullable =false)
 	private	String password;
 	
+	@Transient
+	private String password2;
+	
 	@Column(name = "estatus", nullable =false)
 	private Integer estatus;
 	
@@ -41,7 +53,14 @@ public class Usuario {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date fechaRegistro;
 	
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name="user_roles", 
+				joinColumns = @JoinColumn(name="idUsuario"),
+				inverseJoinColumns = @JoinColumn(name="idRole"))
+	private Set roles;
 	
+	
+
 	public Integer getId() {
 		return id;
 	}
@@ -85,5 +104,11 @@ public class Usuario {
 		this.fechaRegistro = fechaRegistro;
 	}
 	
+	public Set getRoles() {
+		return roles;
+	}
+	public void setRoles(Set roles) {
+		this.roles = roles;
+	}
 	
 }

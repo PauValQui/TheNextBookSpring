@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
-import com.paula.thenextbook.model.Autor;
-import com.paula.thenextbook.model.Categoria;
 import com.paula.thenextbook.model.Libro;
 import com.paula.thenextbook.repository.LibroRepository;
 import com.paula.thenextbook.service.ILibroService;
@@ -34,11 +32,8 @@ public class LibroServiceJpa implements ILibroService{
 	}
 	
 	public List<Libro> obtenerLibros(){
-		List<Libro> libros = new LinkedList<Libro>();
 		
-		libros = repo.findAll();
-		
-		return libros;
+		return repo.findAll();
 	}
 	
 	public void eliminar(Integer id) {

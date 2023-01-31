@@ -8,7 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.paula.thenextbook.model.Autor;
 import com.paula.thenextbook.model.Libro;
+import com.paula.thenextbook.service.IAutorService;
 import com.paula.thenextbook.service.ILibroService;
 
 @Controller
@@ -17,6 +19,9 @@ public class HomeController {
 	@Autowired
 	//@Qualifier("libroServiceJpa") otra forma de definir el Servicio que queremos que utilice
 	private ILibroService serviceLibro;
+	
+	@Autowired
+	private IAutorService serviceautor;
 	
 	@GetMapping("/")
 	public String mostrarHeader(Model model) {
@@ -33,8 +38,10 @@ public class HomeController {
 		
 		//Lista para Tarjetas
 		List<Libro> Libros = serviceLibro.obtenerLibros();
+		List<Autor> autores= serviceautor.obtenerAutores();
 		
 		model.addAttribute("libros", Libros);
+		model.addAttribute("autores", autores);
 		
 		return "home";
 	}
