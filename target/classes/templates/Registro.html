@@ -12,14 +12,22 @@
 	
 	<div>
 		<div class="Login"><!-- formulario de logeo en el que controlo los requisitos que he impuesto -->
-			 <div class="col-12 user-img">
-             	<img src="static/img/user.png" th:src="@{/img/user.png}"/>
-             </div>
-		
-            <form class="Login__Form" method="GET" th:action="@{/login}" th:object="${usuario}">
+            <form class="Login__Form" method="POST" th:action="@{/login}" th:object="${usuario}">
+            	
+            	<div th:if="${#fields.hasErrors('*')}"class='alert alert-danger' role='alert'>
+					<p>Por favor corrija los siguientes errores:</p>
+					<ul>
+						<li th:each="err : ${#fields.errors('*')}" th:text="${err}"/>
+					</ul>
+				</div>
+				
+				<div class="Login__Form__Datos">
+                    <label for="nombre" class="Login__Form__Datos__Label">Nombre</label>
+                    <input type="text" class="Login__Form__Datos__Box" th:field="*{nombre}" name="nombre" placeholder="Nombre y Apellidos">
+                </div>
                 <div class="Login__Form__Datos">
-                    <label for="text" class="Login__Form__Datos__Label">Nombre de Usuario</label>
-                    <input type="text" class="Login__Form__Datos__Box @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    <label for="email" class="Login__Form__Datos__Label">{{ __('Email') }}</label>
+                    <input type="email" class="Login__Form__Datos__Box @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

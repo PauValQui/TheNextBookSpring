@@ -13,3 +13,130 @@
 .Slider__Box__Item{
 	width:100%;
 }
+
+.Novedades__BoxTitulo{
+	width: 100%;
+    border-top:1px solid #DEDEDE;
+    border-bottom: 1px solid #DEDEDE;
+    font-size: 30px;
+    text-align: center;
+    color:#454142;
+}
+
+.Novedades__BoxLibros{
+	display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 2%;
+}
+
+.Novedades__BoxLibros__Libros{
+			width: 250px;
+            height: 450px;
+            background-color: #B5C78B;
+            display: grid;
+}
+
+.Novedades__BoxLibros__Libro__Img{
+	 			width: 215px;
+                height: 290px;
+                margin-left: 7%;
+}
+
+.Novedades__BoxLibros__Libro__Img img{
+					width: 215px;
+                    height: 280px;
+                    margin-top: 5%;
+}
+
+
+.Novedades__BoxLibros__Libro__Titulo{
+	font-size: 24px;
+                color: #454142;
+                font-weight: bold;
+                margin-left: 7%;
+                margin-right: 7%;
+                text-decoration: none;
+}
+
+
+.Novedades__BoxLibros__Libro__Autor{
+	margin-left: 7%;
+                font-size: 20px;
+                color:#454142;
+                text-decoration: none;
+}
+
+
+.Novedades__BoxLibros__Libro__BoxCategoria{
+	 margin: 7%;
+                height: 25px;
+                background-color: #DEDEDE;
+}
+
+.Novedades__BoxLibros__Libro__BoxCategoria a{
+	margin: 2%;
+                    color: #454142;
+                    font-weight: bold;
+                    text-decoration: none;
+}
+
+.Autores{
+    
+}
+
+.Autores__Titulo{
+        width: 100%;
+        border-top:1px solid #DEDEDE;
+        border-bottom: 1px solid #DEDEDE;
+        font-size: 30px;
+        text-align: center;
+        color:#454142;
+    }
+
+.Autores__Box{
+        display:flex;
+    	justify-content: space-evenly;
+    	align-items: center;
+    	margin-top: 2%;
+}
+.Autores__Box__Autor{
+            width: 250px;
+            height: 400px;
+            background-color: #B5C78B;
+            margin-bottom: 2%;
+            display: grid;
+} 
+.Autores__Box__Autor__Img{
+                width: 215px;
+                height: 275px;
+                margin-left: 7%;
+}
+.Autores__Box__Autor__Img img{
+                    width: 215px;
+                    height: 270px;
+                    margin-top: 3%;
+                }
+
+.Autores__Box__Autor__Nombre{
+                text-align: center;
+                font-size: 24px;
+                color: #454142;
+                font-weight: bold;
+                margin-left: 7%;
+                margin-right: 7%; 
+                text-decoration: none; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
