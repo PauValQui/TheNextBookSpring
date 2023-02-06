@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>The Next Book</title>
+    <link href="/../css/Header.css" rel="stylesheet">
+	<link href="/../css/Footer.css" rel="stylesheet">
+    <link href="/../css/Confirmar_registro.css" rel="stylesheet">
+</head>
+<body>
+
+	<div th:insert="fragments/Header :: header"></div>
+	
+    <div class="container text-center">
+        <h3>You have signed up successfully!</h3>
+        <h4><a th:href="/@{/login}">Click here to Login</a></h4>
+    </div>
+    
+    <div th:insert="fragments/Footer :: footer"></div>
+</body>
+</html>

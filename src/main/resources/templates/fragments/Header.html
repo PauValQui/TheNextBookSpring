@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
-<title>Insert title here</title>
+<title>The Next Book</title>
 
 </head>
 <body>
@@ -33,9 +33,19 @@
             </li>
           </ul>
 
-          <button class="Header__NavBar__BotonInicio">
-            <a href='/Login' class="Header__NavBar__BotonInicio__Enlace">Inicio Sesión</a>
-          </button>
+			<div class="Header__NavBar__Login">
+				<button class="Header__NavBar__Login__BotonInicio" th:if="sec:authorize=hasRole('ROLE_ANONYMOUS')">
+	            	<a href='/login' class="Header__NavBar__Login__BotonInicio__Enlace">Inicio Sesión</a>
+	          	</button>
+	          	
+	          	<div th:if="sec:authorize=isAuthenticated()">
+				    <p>Logged as: <span sec:authentication="name"></span></p>
+				    <p>Has role: <span sec:authentication="authorities"></span></p>
+				    <div th:if="sec:authorize=hasAuthority('USER')" th:insert="fragments/User :: user"></div>
+				    <div th:if="sec:authorize=hasAuthority('ADMIN')" th:insert="fragments/Admin :: admin"></div>
+				    <a th:href="@{/logout}">Log out</a>
+				</div>
+			</div>
         </div>
     </div>
 </body>

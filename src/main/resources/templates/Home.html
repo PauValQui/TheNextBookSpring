@@ -19,6 +19,12 @@
         </div>
     </div>
     
+      <p sec:authorize="hasRole('ROLE_ANONYMOUS')">Text visible to anonymous.</p>
+	  <p sec:authorize="hasRole('USER')">Text visible to user.</p>
+	  <p sec:authorize="hasRole('ADMIN')">Text visible to admin.</p>
+	  <p sec:authorize="isAuthenticated()">Text visible only to authenticated users.</p>
+	  
+	  
     <div class="Novedades">
         <div class="Novedades__BoxTitulo">
             <p>--Últimas Novedades--</p>

@@ -7,11 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.paula.thenextbook.model.Autor;
 import com.paula.thenextbook.model.Libro;
+import com.paula.thenextbook.model.Usuario;
 import com.paula.thenextbook.service.IAutorService;
 import com.paula.thenextbook.service.ILibroService;
+import com.paula.thenextbook.service.IUsuarioService;
 
 @Controller
 public class HomeController {
@@ -22,6 +26,9 @@ public class HomeController {
 	
 	@Autowired
 	private IAutorService serviceautor;
+	
+	@Autowired
+	private IUsuarioService serviceUsuario;
 	
 	@GetMapping("/")
 	public String mostrarHeader(Model model) {
@@ -44,5 +51,32 @@ public class HomeController {
 		model.addAttribute("autores", autores);
 		
 		return "home";
+	}
+	
+	@GetMapping("/login")
+	public String inicioSesion() {
+		return "login";
+	}
+	
+	@GetMapping("/registro")
+	public String mostrarFormularioRegistro(Model model) {
+		
+		model.addAttribute("userForm", new Usuario());
+		
+		return "registro";
+	}
+	
+	@PostMapping("/procesar_registro")
+	public String procesarRegistro(Usuario usuario) {
+		
+		/*BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+	    String encodedPassword = passwordEncoder.encode(usuario.getPassword());
+	    usuario.setPassword(encodedPassword);
+	     
+	    userRepo.save(usuario);
+	     
+	    return "register_success";*/
+		
+		return "confirmar_registro";
 	}
 }

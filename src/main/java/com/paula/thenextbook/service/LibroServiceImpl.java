@@ -2,8 +2,6 @@ package com.paula.thenextbook.service;
 
 import java.util.List;
 
-import com.paula.thenextbook.model.Autor;
-import com.paula.thenextbook.model.Categoria;
 import com.paula.thenextbook.model.Libro;
 
 public class LibroServiceImpl implements ILibroService{

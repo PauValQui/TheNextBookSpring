@@ -10,41 +10,39 @@
 <body>
 	<div th:insert="fragments/Header :: header"></div>
 	
-	<div>
 		<div class="Login"><!-- formulario de logeo en el que controlo los requisitos que he impuesto -->
-			 <div class="col-12 user-img">
-             	<img src="static/img/user.png" th:src="@{/img/user.png}"/>
+			 <div class="Login__Icon">
+             	<img src="static/images/IconosSVG/user.png" th:src="@{/images/IconosSVG/user.png}"/>
              </div>
-		
-            <form class="Login__Form" method="GET" th:action="@{/login}" th:object="${usuario}">
+			
+            <form class="Login__Form" method="POST" th:action="@{/login}">
+                <!-- Username -->
                 <div class="Login__Form__Datos">
                     <label for="text" class="Login__Form__Datos__Label">Nombre de Usuario</label>
-                    <input type="text" class="Login__Form__Datos__Box @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                    <input type="text" class="Login__Form__Datos__Box" name="username" th:placeholder="Nombre de Usuario">
                 </div>
-    
+    			<!-- Contraseña -->
                 <div class="Login__Form__Datos">
-                    <label for="password" class="Login__Form__Datos__Label">{{ __('Contraseña') }}</label>
-    
-                    <input id="password" type="password" class="Login__Form__Datos__Box @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-    
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                    <label for="password" class="Login__Form__Datos__Label">Contraseña</label>
+                    <input type="password" class="Login__Form__Datos__Box" name="password" th:placeholder="Password">
                 </div>
                 
                 <div class="Login__Form__Enlace">
-                    <p>¿No tienes cuenta? <a href="/register" class="Login__Form__Enlace__Registro">Registrate aquí</a></p>
+                    <p>¿No tienes cuenta? <a th:href="@{/registro}" class="Login__Form__Enlace__Registro" th:text="Registrate aquí"></a></p>
                 </div>
                 <div class="Login__Form__Boton">
-                    <input type='submit' value="Iniciar Sesión" class="Login__Form__Boton__Enviar"/>
+                    <input type='submit' th:text="Iniciar Sesión" class="Login__Form__Boton__Enviar"/>
                 </div>
+                
+                <div th:if="${param.error}" class="Login__Form__Error-Cont">
+		            <p>Nombre de usuario o contraseña invalida</p>
+		        </div>
+		        <div th:if="${param.logout}" class="Login__Form__Error-Login">
+		            <p>No estas registrado.</p>
+		        </div>
             </form>
         </div>
-	</div>
-	
+
 	 <div th:insert="fragments/Footer :: footer"></div>
 
 </body>

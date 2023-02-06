@@ -1,33 +1,55 @@
 package com.paula.thenextbook.controller;
 
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import com.paula.thenextbook.model.Usuario;
 import com.paula.thenextbook.service.IUsuarioService;
 
+import jakarta.validation.Valid;
+
+
 @Controller
-@RequestMapping("/login")
 public class LoginController {
 	
 	@Autowired
 	private IUsuarioService serviceUsuario;
 	
-	@GetMapping("/")
-	public String inicioSesion() {
-		return "login";
-	}
-	
-	@PostMapping("/registro")
-	public String guardar(@RequestParam("nombre") String nombre, @RequestParam("email") String email,
-			@RequestParam("username") String username, @RequestParam("password") String password, 
-			@RequestParam("password2") String password2) {
-		
-		
-		
-		return "registro";
-	}
+	@GetMapping(value = {"/login"})
+    public String login(){
+        return "auth/login";
+    }
+
+    @GetMapping(value = {"/register"})
+    public String register(Model model){
+        model.addAttribute("user", new Usuario());
+        return "auth/register";
+    }
+
+    @PostMapping(value = {"/register"})
+    public String registerUser(Model model, @Valid Usuario user, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            model.addAttribute("successMessage", "User registered successfully!");
+            model.addAttribute("bindingResult", bindingResult);
+            return "auth/register";
+        }
+        List<Object> userPresentObj = serviceUsuario.isUserPresent(user);
+        if((Boolean) userPresentObj.get(0)){
+            model.addAttribute("successMessage", userPresentObj.get(1));
+            return "auth/register";
+        }
+
+        serviceUsuario.guardar(user);
+        model.addAttribute("successMessage", "User registered successfully!");
+
+        return "auth/login";
+    }
 }
+

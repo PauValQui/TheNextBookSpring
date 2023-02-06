@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+.Login{
+	height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:2%;
+}
+
+.Login__Icon{
+	margin-right:4%;
+}
+
+.Login__Form{
+	width:40%;
+}
+
+.Login__Form__Datos{
+    margin-bottom: 3%;
+}
+
+.Login__Form__Datos__Label{
+	font-weight: bold;
+    margin-bottom: 3%;
+}
+
+.Login__Form__Datos__Box{
+	height: 45px;
+    width: 100%;
+    background-color:#444444;
+    color:#fff;
+}
+
+.Login__Form__Enlace{
+	display: flex;
+}
+
+.Login__Form__Enlace__Registro{
+	color:#B5C78B;
+    margin-top: 1em;
+}
+
+.Login__Form__Boton{
+	margin-top: 5%
+}
+
+.Login__Form__Boton__Enviar{
+	float: right;
+    width: 180px;
+    height: 50px;
+    background-color: #444444;
+    color: #B5C78B;
+    font-weight: bold;
+    pointer-events: all;
+}
+
+.Login__Form__Error-Cont{
+	
+}
+
+.Login__Form__Error-Login{
+	
+}
