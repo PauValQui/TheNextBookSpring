@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>The Next Book</title>
+	<link th:href="@{/../css/Header.css}" rel="stylesheet">
+	<link th:href="@{/../css/Footer.css}" rel="stylesheet">
+	<link th:href="@{/../css/SaveValuations.css}" rel="stylesheet">
+</head>
+<body>
+
+	<div th:insert="fragments/Header :: header"></div>
+	
+	<div class="Valuations"><!-- En el formulario de valoraciones recojo la información y la introduzco en la tabla de valoraciones de mi base de datos -->
+        <div class="Valuations__BoxTitulo">
+            <p>-- Valoraciones --</p>
+        </div>
+        
+        <form th:action="@{/saveValuations}" method="POST" class="Valuations__Formulario"> 
+            <label class="Valuations__Formulario__Label">Titulo de la valoración:</label>
+            <input type="text" name="titulo" placeholder="Titulo" class="Valuations__Formulario__Input"/>
+            
+            <label class="Valuations__Formulario__Label">Puntuación</label>
+            <select class="Valuations__Formulario__Select" name="puntuacion">
+                <option value="1">1 estrella</option>
+                <option value="2">2 estrellas</option>
+                <option value="3">3 estrellas</option>
+                <option value="4">4 estrellas</option>
+                <option value="5">5 estrellas</option>
+            </select>
+
+            <label class="Valuations__Formulario__Label">Reseña:</label>
+            <textarea name="comentario" class="Valuations__Formulario__Textarea" cols="20" placeholder="Introduce tu reseña:"></textarea>
+
+            <input type="hidden" name="libro_id" th:value="@{libro.id}">
+            <input type="submit" value="Enviar" class="Valuations__Formulario__Button"/>
+        </form>
+     </div>  
+     
+     <div th:insert="fragments/Footer :: footer"></div>
+</body>
+</html>

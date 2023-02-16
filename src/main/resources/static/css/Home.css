@@ -21,6 +21,7 @@
     font-size: 30px;
     text-align: center;
     color:#454142;
+    margin-top:2%;
 }
 
 .Novedades__BoxLibros{
@@ -50,39 +51,38 @@
 }
 
 
-.Novedades__BoxLibros__Libro__Titulo{
-	font-size: 24px;
-                color: #454142;
-                font-weight: bold;
-                margin-left: 7%;
-                margin-right: 7%;
-                text-decoration: none;
+.Novedades__BoxLibros__Libro__Box{
+	margin:2%;
+	display:grid;
 }
 
+.Novedades__BoxLibros__Libro__Box__Titulo{
+                font-size: 24px;
+                color: #454142;
+                font-weight: bold;
+                margin-left: 10%;
+                text-decoration: none;
+            }
 
-.Novedades__BoxLibros__Libro__Autor{
-	margin-left: 7%;
+.Novedades__BoxLibros__Libro__Box__Autor{
+                margin-left: 10%;
                 font-size: 20px;
                 color:#454142;
                 text-decoration: none;
-}
-
+            }
 
 .Novedades__BoxLibros__Libro__BoxCategoria{
-	 margin: 7%;
+                margin-left: 10%;
+			    margin-bottom: 8%;
+			    margin-right: 10%;
                 height: 25px;
                 background-color: #DEDEDE;
 }
-
 .Novedades__BoxLibros__Libro__BoxCategoria a{
-	margin: 2%;
+                    margin: 2%;
                     color: #454142;
                     font-weight: bold;
                     text-decoration: none;
-}
-
-.Autores{
-    
 }
 
 .Autores__Titulo{
@@ -92,6 +92,7 @@
         font-size: 30px;
         text-align: center;
         color:#454142;
+        margin-top:2%;
     }
 
 .Autores__Box{

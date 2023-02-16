@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>The Next Book</title>
+	<link th:href="@{/../css/Header.css}" rel="stylesheet">
+	<link th:href="@{/../css/Footer.css}" rel="stylesheet">
+	<link th:href="@{/../css/Search.css}" rel="stylesheet">
+</head>
+<body>
+	<div th:insert="fragments/Header :: header"></div>
+	
+	<div class="Buscador">
+		<div class="Buscador__BoxLibros__Libro" th:each="libro, iterator: ${libros}">
+        	<div class="Buscador__BoxLibros__Libro__Img">
+            	<a th:href="@{/view/} + ${libro.id}"><img th:src="@{/images/FotosLibros/} + ${libro.foto}" /></a>
+           	</div>
+			<div class="Buscador__BoxLibros__Libro__Box">
+				<a class="Buscador__BoxLibros__Libro__Box__Titulo" th:href="@{/view/} + ${libro.id}" th:text="${libro.titulo}"></a>
+            	<a class="Buscador__BoxLibros__Libro__Box__Autor" th:href="@{/search/} + ${libro.autor.nombre}" th:text="${libro.autor.nombre}"></a>
+				
+			</div>
+            <div class="Buscador__BoxLibros__Libro__BoxCategoria">
+            	<a th:href="@{/search/} + ${libro.categoria.tipo}" th:text="${libro.categoria.tipo}"></a>
+            </div>
+    	</div>
+    	<div class="Buscador__BoxAutores__Autor" th:each="autor, iterator: ${autores}">
+        	<div class="Buscador__BoxAutores__Autor__Img">
+            	<a th:href="@{/search/} + ${autor.nombre}"><img th:src="@{/images/FotosAutores/} + ${autor.foto}" /></a>
+           	</div>
+            <a class="Buscador__BoxAutores__Autor__Nombre" th:href="@{/search/} + ${autor.nombre}" th:text="${autor.nombre}"></a>
+        </div>
+	</div>
+	
+	<div th:insert="fragments/Footer :: footer"></div>
+</body>
+</html>

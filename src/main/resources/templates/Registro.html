@@ -3,98 +3,56 @@
 <head>
 	<meta charset="utf-8">
 	<title>The Next Book</title>
-	<link href="/../css/Header.css" rel="stylesheet">
-	<link href="/../css/Footer.css" rel="stylesheet">
-	<link href="/../css/Registro.css" rel="stylesheet">
+	<link th:href="@{/../css/Header.css}" rel="stylesheet">
+	<link th:href="@{/../css/Footer.css}" rel="stylesheet">
+	<link th:href="@{/../css/Registro.css}" rel="stylesheet">
 </head>
 <body>
 	<div th:insert="fragments/Header :: header"></div>
 	
-	<div class="Check">
-		<div class="Check__Icon">
-             	<img src="static/images/IconosSVG/user.png" th:src="@{/images/IconosSVG/user.png}"/>
+	<div class="Check"><!-- formulario de registro en el que controlo los requisitos que he impuesto -->
+        
+        <div class="Check__Icon">
+             <img src="static/images/IconosSVG/user.png" th:src="@{/images/IconosSVG/user.png}"/>
         </div>
-		<form class="Check__Form"  th:object="${userForm}" th:action="@{/registro}" method="post">
-			<!--Es necesario para poder pasar la validacion del Model-->
-			<input class="form-control" type=hidden th:field="${userForm.id}"  th:if="${editMode}">
-			<input class="form-control" type=hidden name="password" value="xxxx" th:if="${editMode}">
-			<!--quita el comentario si quieres mantener la validacion @NotBlank del campo confirmPassword
-				 <input class="form-control" type=hidden name="confirmPassword" value="xxxx" th:if="${editMode}">
-			 -->
-			
-			<div class="Check__Form__Datos">
-				<label class="Check__Form__Datos__Label">Nombre Completo</label>
-				<div class="Check__Form__Datos__Div">
-					<input class="Check__Form__Datos__Div__Box" type="text" th:field="${userForm.nombre}" th:disabled="${disableFields}">
-					<!--  <div class="Check__Form__Datos__Div__Box__Error" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Name Error</div>
-						-->
-				</div>
-			</div>
-			
-			<div class="Check__Form__Datos">
-				<label class="Check__Form__Datos__Label">Email</label>
-				<div class="Check__Form__Datos__Div">
-					<input class="Check__Form__Datos__Div__Box" type="email" th:field="${userForm.email}" th:disabled="${disableFields}">
-					<!-- <div class="Check__Form__Datos__Div__Box__Error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</div>
-						-->
-				</div>
-			</div>
-			<div class="Check__Form__Datos">
-				<label class="Check__Form__Datos__Label">Nombre de Usuario</label>
-				<div class="Check__Form__Datos__Div">
-					<input class="Check__Form__Datos__Div__Box" type="text" th:field="${userForm.username}" th:disabled="${disableFields}">
-					<!-- <div class="Check__Form__Datos__Div__Box__Error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</div>
-						-->
-				</div>
-			</div>
-			<div class="Check__Form__Datos">
-				<label th:text="Roles" class="Check__Form__Datos__Label">Rol</label>
-				<div class="Check__Form__Datos__Div">
-					<select th:field="*{role}" required>
-				      <option value="">Select</option>
-				      <option value="ADMIN">ADMIN</option>
-				      <option value="USER">USER</option>
-				    </select>
-					<!-- <div class="Check__Form__Datos__Div__Box__Error" th:if="${#fields.hasErrors('roles')}" th:errors="*{roles}">Rol Error</div>
-						-->
-				</div>
-			</div>
-			
-			<div class="Check__Form__Datos" th:if="${editMode==null or editMode==false}">
-				<label class="Check__Form__Datos__Label">Password</label>
-				<div class="Check__Form__Datos__Div">
-					<input class="Check__Form__Datos__Div__Box" type="password" th:field="${userForm.password}" th:disabled="${disableFields}">
-					<!-- <div class="Check__Form__Datos__Div__Box__Error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</div>
-						-->
-				</div>
-			</div>
-			<div class="Check__Form__Datos" th:if="${editMode==null or editMode==false}">
-				<label class="Check__Form__Datos__Label">Confirm Password</label>
-				<div class="Check__Form__Datos__Div">
-					<input class="Check__Form__Datos__Div__Box" type="password" th:field="${userForm.password2}" th:disabled="${disableFields}" >
-					<!-- <div class="Check__Form__Datos__Div__Box__Error" th:if="${#fields.hasErrors('password2')}" th:errors="*{password2}">Confirm password Error</div>
-						-->
-				</div>
-			</div>
-			<div class="Check__Form__Datos">
-				<div class="Check__Form__Datos__DivBoton">
-					<button type="submit">Register</button> | <a th:href="@{|/login|}" th:text="'Log in'"></a>
-				    <span th:utext="${successMessage}"></span>
-				    <div th:if="${bindingResult!=null && bindingResult.getAllErrors()!=null}">
-				      <ul th:each="data : ${bindingResult.getAllErrors()}">
-				        <li th:text="${data.getObjectName() + ' :: ' + data.getDefaultMessage()}"></li>
-				      </ul>
-				    </div>
-				</div>
-			</div>
-			<!--
-			<div class="Check__Form__Error" th:if="${formErrorMessage}" th:text="${formErrorMessage}">Error Message</div>
-			<div class="Check__Form__Error" id="formSuccess" th:if="${editMode}" >Success Message</div>
-			-->
-		</form>
-	</div>
-	
-	 <div th:insert="fragments/Footer :: footer"></div>
+        
+        <form class="Check__Form" method="POST" th:action="@{/save}" th:object="${Usuario}">
+        	
+        	<div class="Check__Form__Datos">
+                <label for="name" class="Check__Form__Datos__Label" th:text="@{Nombre de Usuario:}"></label>
+                <input id="nombre" type="text" class="Check__Form__Datos__Box" th:field="*{username}" name="username" placeholder="Nombre de Usuario" autofocus>
+            </div>
+        
+            <div class="Check__Form__Datos">
+                <label for="name" class="Check__Form__Datos__Label" th:text="@{Nombre Completo:}"></label>
+                <input id="nombre" type="text" class="Check__Form__Datos__Box" th:field="*{nombre}" name="nombre" placeholder="Nombre Completo" autofocus>
+            </div>
 
+            <div class="Check__Form__Datos">
+                <label for="email" class="Check__Form__Datos__Label" th:text="@{Email:}"></label>
+                <input id="email" type="email" class="Check__Form__Datos__Box" th:field="*{email}" name="email" placeholder="Email">
+                
+            </div>
+            <div class="Check__Form__Datos">
+                <label for="password" class="Check__Form__Datos__Label" th:text="@{Contraseña:}"></label>
+                <input type='password' class="Check__Form__Datos__Box" th:field="*{password}" name="password" placeholder="Contraseña" />
+                
+            </div>
+
+            <div class="Check__Form__Datos">
+                <label for="password-confirm" class="Check__Form__Datos__Label" th:text="@{Confirmar Contraseña}"></label>
+                <input id="password-confirm" type="password" class="Check__Form__Datos__Box" name="password_confirmation" placeholder="Confirmar Contraseña">
+                
+            </div>
+			
+			<input class="form-control" type=hidden th:field="*{id}" name="id" th:if="${editMode}">
+			<input class="form-control" type=hidden th:field="*{estatus}" name="estatus" value="false" th:if="${editMode}">
+            <div class="Check__Form__Boton">
+                <button type="submit" class="Check__Form__Boton__Enviar" th:text="@{Registrate}"></button>
+            </div>
+        </form>
+    </div>
+	
+	<div th:insert="fragments/Footer :: footer"></div>
 </body>
 </html>

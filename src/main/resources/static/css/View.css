@@ -1,0 +1,192 @@
+@charset "UTF-8";
+
+.View{
+	margin-top:2%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.View__BoxImg{
+        width: 25%;
+}
+
+.View__BoxImg img{
+            width:250px;
+            height: 350px;
+            margin-left: 15%;
+        }
+
+.View__BoxDescription{
+        width: 45%;
+}
+.View__BoxDescription__Titulo{
+            font-size: 40px;
+            color: #454142;
+            font-weight: bold;
+        }
+.View__BoxDescription__Autor{
+            margin-bottom: 1%;
+}
+.View__BoxDescription__Autor a{
+                font-size: 18px;
+                color: #454142;
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+.View__BoxDescription__Categoria{
+            background-color: #454142;
+            width: 20%;
+}
+.View__BoxDescription__Categoria a{
+                font-size: 20px;
+                color: #B5C78B;
+                text-decoration: none;
+                position:relative;
+                left:3%;
+            }
+.View__BoxDescription__Sinopsis{
+            font-size: 18px;
+            color: #454142;
+        }
+
+.View__ShopBox{
+        border-left:1px solid #454142;
+        height: 100%;
+        width:15%;
+        margin-left:5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+}
+
+.View__ShopBox__Titulo{
+            font-size: 40px;
+            color: #454142;
+            margin-top:25%;
+            margin-bottom: 0;
+        }
+
+.View__ShopBox__Precio{
+            font-size: 40px;
+            color: #454142;
+        }
+.View__ShopBox__Button{
+	width:75%;
+}    
+   
+  	.View__ShopBox__Button__BotonCompra{
+   		width: 100%;
+        height: 50px;
+            font-size: 20px;
+            color: #B5C78B;
+            background-color: #454142;
+            margin-bottom: 10%;
+   }
+   
+.Valuations{
+	width:100%;
+	height: 100px;
+	position:relative;
+	
+}
+
+.Valuations__Button{
+	width: 15%;
+    height: 35px;
+    background-color: #454142;
+    position: absolute;
+    /* text-align: center; */
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    top: 50%;
+    left: 40%;
+    margin: -25px 0 0 -25px;
+}
+
+.Valuations__Button a{
+			font-size: 20px;
+            color: #B5C78B;
+            text-decoration:none;
+}
+
+@media(min-width:320px) and (max-width:767px){
+    .View{
+        display: block;
+    	}    
+    .View__BoxImg{
+            width: 75%;
+            margin-left: 14%;
+        }
+    
+    .View__BoxDescription{
+            width: 100%;
+            text-align: center;
+    }
+    .View__BoxDescription__Categoria{
+                background-color: #454142;
+                width: 25%;
+                margin-left: 5%;
+            }
+   .View__BoxDescription__Sinopsis{
+               margin: 2%;
+            }
+        
+    
+    .View__ShopBox{
+            height: 400px;
+        }
+        
+   	.View__ShopBox__Button{
+   		
+   }
+   
+  	.View__ShopBox__Button__BotonCompra{
+   		height:100px;
+   }
+
+   
+}
+
+
+@media(min-width:768px) and (max-width:1024px){
+    .View{
+        align-items: unset;
+        margin-top: 3%;
+    }
+   	.View__BoxImg{
+            width: 75%;
+            margin-left: 0;
+        }
+    
+    .View__BoxDescription{
+            width: 100%;
+            text-align: center;
+        }
+    .View__BoxDescription__Categoria{
+                background-color: #454142;
+                width: 25%;
+                margin-left: 5%;
+            }
+    .View__BoxDescription__Sinopsis{
+               margin: 2%;
+            }    
+        
+   .View__ShopBox{}
+   
+   .View__ShopBox__Titulo{
+            font-size: 30px;
+        }
+   .View__ShopBox__Precio{
+            font-size: 25px;
+        }
+   .View__ShopBox__Boton{
+            width: 100%;
+            height: 100%;
+            font-size: 15px;
+            margin: 0;
+        }
+        
+    
+}

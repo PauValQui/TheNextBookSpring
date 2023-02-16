@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8">
-<title>The Next Book</title>
-<link href="/../css/Header.css" rel="stylesheet">
-<link href="/../css/Footer.css" rel="stylesheet">
-<link href="/../css/Login.css" rel="stylesheet">
+	<meta charset="utf-8">
+	<title>The Next Book</title>
+	<link th:href="@{/../css/Header.css}" rel="stylesheet">
+	<link th:href="@{/../css/Footer.css}" rel="stylesheet">
+	<link th:href="@{/../css/Login.css}" rel="stylesheet">
 </head>
 <body>
+
 	<div th:insert="fragments/Header :: header"></div>
 	
 		<div class="Login"><!-- formulario de logeo en el que controlo los requisitos que he impuesto -->
@@ -15,31 +16,31 @@
              	<img src="static/images/IconosSVG/user.png" th:src="@{/images/IconosSVG/user.png}"/>
              </div>
 			
-            <form class="Login__Form" method="POST" th:action="@{/login}">
+            <form class="Login__Form" method="POST" th:action="@{/login}" th:object="${usuario}">
                 <!-- Username -->
                 <div class="Login__Form__Datos">
-                    <label for="text" class="Login__Form__Datos__Label">Nombre de Usuario</label>
-                    <input type="text" class="Login__Form__Datos__Box" name="username" th:placeholder="Nombre de Usuario">
+                    <label for="text" class="Login__Form__Datos__Label" th:text="@{Nombre de Usuario:}"></label>
+                    <input type="text" class="Login__Form__Datos__Box" name="username" placeholder="Nombre de Usuario" th:field="*{username}">
                 </div>
     			<!-- Contraseña -->
                 <div class="Login__Form__Datos">
-                    <label for="password" class="Login__Form__Datos__Label">Contraseña</label>
-                    <input type="password" class="Login__Form__Datos__Box" name="password" th:placeholder="Password">
+                    <label for="password" class="Login__Form__Datos__Label" th:text="@{Contraseña:}"></label>
+                    <input type="password" class="Login__Form__Datos__Box" name="password" th:field="*{password}" placeholder="Contraseña">
                 </div>
                 
                 <div class="Login__Form__Enlace">
-                    <p>¿No tienes cuenta? <a th:href="@{/registro}" class="Login__Form__Enlace__Registro" th:text="Registrate aquí"></a></p>
+                    <p>¿No tienes cuenta? <a th:href="@{/registro}" class="Login__Form__Enlace__Registro">Registrate aquí</a></p>
                 </div>
                 <div class="Login__Form__Boton">
-                    <input type='submit' th:text="Iniciar Sesión" class="Login__Form__Boton__Enviar"/>
+                    <input type='submit' value="Iniciar Sesión" class="Login__Form__Boton__Enviar"/>
                 </div>
                 
-                <div th:if="${param.error}" class="Login__Form__Error-Cont">
-		            <p>Nombre de usuario o contraseña invalida</p>
-		        </div>
-		        <div th:if="${param.logout}" class="Login__Form__Error-Login">
-		            <p>No estas registrado.</p>
-		        </div>
+                <div th:if="${#fields.hasErrors('*')}" class='Login__Form__Errores' >
+					Por favor corrija los siguientes errores:
+					<ul>
+						<li th:each="err : ${#fields.errors('*')}" th:text="${err}" />
+					</ul>
+				</div>
             </form>
         </div>
 

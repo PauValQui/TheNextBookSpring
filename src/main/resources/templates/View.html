@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>The Next Book</title>
+	<link th:href="@{/../css/Header.css}" rel="stylesheet">
+	<link th:href="@{/../css/Footer.css}" rel="stylesheet">
+	<link th:href="@{/../css/View.css}" rel="stylesheet">
+</head>
+<body>
+	<div th:insert="fragments/Header :: header"></div>
+	
+	<div class="View"><!--A esta vista le doy le mando un libro especificado por su id-->
+        <div class="View__BoxImg">
+            <img th:src="@{/images/FotosLibros/} + ${libro.foto}" />
+        </div>
+        <div class="View__BoxDescription">
+            <p class="View__BoxDescription__Titulo" th:text="${libro.titulo}"></p>
+            <div class="View__BoxDescription__Autor">
+                <a th:href="@{/search/{busqueda} (busqueda = ${libro.autor.nombre})}" th:text="${libro.autor.nombre}"></a>
+            </div>
+            <div class="View__BoxDescription__Categoria">
+                <a th:href="@{/search/{busqueda} (busqueda = ${libro.categoria.tipo})}" th:text="${libro.categoria.tipo}"></a>
+            </div>
+            <p class="View__BoxDescription__Sinopsis" th:text="${libro.sinopsis}"></p>
+        </div>
+
+        <div class="View__ShopBox">
+            <p class="View__ShopBox__Titulo">Precio:</p>
+            <p class="View__ShopBox__Precio" th:text="${libro.precio} + €"></p>
+            
+            <form th:action="@{/comprar}" method="POST" class="View__ShopBox__Button">
+            	<input type="submit" class="View__ShopBox__Button__BotonCompra" value="Añadir a la cesta"/>
+            </form>
+        </div>
+    </div>
+
+
+	<div class="Valuations">
+		<div class="Valuations__Button">
+			<a  th:text="@{Introduce una valoracion}" th:href="@{/saveValuations/{id} (id = ${libro.id})}"></a>
+		</div>
+	</div>
+    
+
+        <!--Bucle valoraciones de este libro en el que muestro las valoraciones que hay relacionadas con este libro-->
+
+            <div class="ViewValuations" th:unless="${valoracion == null}">
+            	<div class="ViewValuations__BoxValuations">
+    	            <div class="ViewValuations__BoxValuations__Valuations">
+                        <p class="ViewValuations__BoxValuations__Valuations__Titulo" th:text="@{valoracion.titulo}"></p>
+                        <p class="ViewValuations__BoxValuations__Valuations__Puntuacion" th:text="@{valoracion.puntuacion}"></p>
+                        <div class="ViewValuations__BoxValuations__Valuations__Comentario">
+     	                   <p th:text="@{valoracion.comentario}"></p>
+                        </div>
+                     </div>
+  	              </div> 
+    	        </div>
+	
+	<div th:insert="fragments/Footer :: footer"></div>
+</body>
+</html>

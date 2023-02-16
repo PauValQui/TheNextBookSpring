@@ -24,7 +24,7 @@
             margin: 1%;
             color:#B5C78B;
 }
-.Footer__Box__Contact a:link, a:visited, a:active{
+.Footer__Box__Contact__a:link, .Footer__Box__Contact__a:visited, .Footer__Box__Contact__a:active{
                 text-decoration: none;
                 color:#B5C78B;
             }

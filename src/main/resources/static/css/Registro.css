@@ -1,15 +1,15 @@
 @charset "UTF-8";
 
 .Check{
-	display:flex;
+	height: 100%;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    margin: 4%;
-    font-size:15px;
-    color:#444444;
+    margin:2%;
 }
 
 .Check__Icon{
-	
+	margin-right:4%;
 }
 
 .Check__Form{
@@ -18,37 +18,22 @@
 
 .Check__Form__Datos{
 	margin-bottom: 3%;
-            font-weight: bold;
+    
 }
 
 .Check__Form__Datos__Label{
-	height: 40px;
-                width: 100%;
-                background-color:#444444;
-                color:#fff;
+	margin-bottom:3%;
+	font-weight: bold;
 }
 
-.Check__Form__Datos__Div{
-	display: flex;
+.Check__Form__Datos__Box{
+	height: 45px;
+    width: 100%;
+    background-color:#444444;
+    color:#fff;
 }
 
-.Check__Form__Datos__Div__Box{
-	margin-top: 18px;
-}
-
-.Check__Form__Datos__Div__Box__Error{
-	
-}
-
-.Check__Form__Datos__DivBoton{
-	 margin-top: 5%;
-}
-
-.Check__Form__Datos__DivBoton__Enlace{
-	
-}
-
-.Check__Form__Datos__DivBoton__button{
+.Check__Form__Boton__Enviar{
 	float: right;
     width: 180px;
     height: 50px;
@@ -56,15 +41,6 @@
     color: #B5C78B;
     font-weight: bold;
     pointer-events: all;
-}
-
-.Check__Form__Datos__DivBoton__input{
-	
-}
-
-
-.Check__Form__Error{
-	
 }
 
 
