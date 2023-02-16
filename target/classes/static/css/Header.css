@@ -96,17 +96,32 @@ body{
 }
 
 
-.Header__NavBar__BotonInicio{
-            width: 10%;
-            margin: 1%;
+.Header__NavBar__Login__BotonInicio{
+            width: 100%;
+            height:70%;
+            margin: 10%;
 }
-.Header__NavBar__BotonInicio__Enlace{
+.Header__NavBar__Login__BotonInicio__Enlace{
                 color: #3A4408;
                 font-weight: bold;
                 text-decoration: none;
                 }
+.Header__NavBar__Login__Nombre{
+	margin-top:5%;
+	margin-bottom: 5%;
+	color: #B5C78B;
+}
     
+.Header__NavBar__Login__BotonLogout{
 
+            height: 50%;
+}
+
+.Header__NavBar__Login__BotonLogout a{
+			text-decoration: none;
+			color: #3A4408;
+            font-weight: bold;
+}
 
 @media(min-width:320px) and (max-width:767px){
 

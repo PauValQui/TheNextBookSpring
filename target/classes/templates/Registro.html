@@ -1,59 +1,58 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8">
-<title>The Next Book</title>
-<link href="/../css/Header.css" rel="stylesheet">
-<link href="/../css/Footer.css" rel="stylesheet">
-<link href="/../css/Login.css" rel="stylesheet">
+	<meta charset="utf-8">
+	<title>The Next Book</title>
+	<link th:href="@{/../css/Header.css}" rel="stylesheet">
+	<link th:href="@{/../css/Footer.css}" rel="stylesheet">
+	<link th:href="@{/../css/Registro.css}" rel="stylesheet">
 </head>
 <body>
 	<div th:insert="fragments/Header :: header"></div>
 	
-	<div>
-		<div class="Login"><!-- formulario de logeo en el que controlo los requisitos que he impuesto -->
-            <form class="Login__Form" method="POST" th:action="@{/login}" th:object="${usuario}">
-            	
-            	<div th:if="${#fields.hasErrors('*')}"class='alert alert-danger' role='alert'>
-					<p>Por favor corrija los siguientes errores:</p>
-					<ul>
-						<li th:each="err : ${#fields.errors('*')}" th:text="${err}"/>
-					</ul>
-				</div>
-				
-				<div class="Login__Form__Datos">
-                    <label for="nombre" class="Login__Form__Datos__Label">Nombre</label>
-                    <input type="text" class="Login__Form__Datos__Box" th:field="*{nombre}" name="nombre" placeholder="Nombre y Apellidos">
-                </div>
-                <div class="Login__Form__Datos">
-                    <label for="email" class="Login__Form__Datos__Label">{{ __('Email') }}</label>
-                    <input type="email" class="Login__Form__Datos__Box @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                </div>
-    
-                <div class="Login__Form__Datos">
-                    <label for="password" class="Login__Form__Datos__Label">{{ __('Contraseña') }}</label>
-    
-                    <input id="password" type="password" class="Login__Form__Datos__Box @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-    
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                </div>
-                
-                <div class="Login__Form__Enlace">
-                    <p>¿No tienes cuenta? <a href="/register" class="Login__Form__Enlace__Registro">Registrate aquí</a></p>
-                </div>
-                <div class="Login__Form__Boton">
-                    <input type='submit' value="Iniciar Sesión" class="Login__Form__Boton__Enviar"/>
-                </div>
-            </form>
+	<div class="Check"><!-- formulario de registro en el que controlo los requisitos que he impuesto -->
+        
+        <div class="Check__Icon">
+             <img src="static/images/IconosSVG/user.png" th:src="@{/images/IconosSVG/user.png}"/>
         </div>
-	</div>
-	
-	 <div th:insert="fragments/Footer :: footer"></div>
+        
+        <form class="Check__Form" method="POST" th:action="@{/save}" th:object="${Usuario}">
+        	
+        	<div class="Check__Form__Datos">
+                <label for="name" class="Check__Form__Datos__Label" th:text="@{Nombre de Usuario:}"></label>
+                <input id="nombre" type="text" class="Check__Form__Datos__Box" th:field="*{username}" name="username" placeholder="Nombre de Usuario" autofocus>
+            </div>
+        
+            <div class="Check__Form__Datos">
+                <label for="name" class="Check__Form__Datos__Label" th:text="@{Nombre Completo:}"></label>
+                <input id="nombre" type="text" class="Check__Form__Datos__Box" th:field="*{nombre}" name="nombre" placeholder="Nombre Completo" autofocus>
+            </div>
 
+            <div class="Check__Form__Datos">
+                <label for="email" class="Check__Form__Datos__Label" th:text="@{Email:}"></label>
+                <input id="email" type="email" class="Check__Form__Datos__Box" th:field="*{email}" name="email" placeholder="Email">
+                
+            </div>
+            <div class="Check__Form__Datos">
+                <label for="password" class="Check__Form__Datos__Label" th:text="@{Contraseña:}"></label>
+                <input type='password' class="Check__Form__Datos__Box" th:field="*{password}" name="password" placeholder="Contraseña" />
+                
+            </div>
+
+            <div class="Check__Form__Datos">
+                <label for="password-confirm" class="Check__Form__Datos__Label" th:text="@{Confirmar Contraseña}"></label>
+                <input id="password-confirm" type="password" class="Check__Form__Datos__Box" name="password_confirmation" placeholder="Confirmar Contraseña">
+                
+            </div>
+			
+			<input class="form-control" type=hidden th:field="*{id}" name="id" th:if="${editMode}">
+			<input class="form-control" type=hidden th:field="*{estatus}" name="estatus" value="false" th:if="${editMode}">
+            <div class="Check__Form__Boton">
+                <button type="submit" class="Check__Form__Boton__Enviar" th:text="@{Registrate}"></button>
+            </div>
+        </form>
+    </div>
+	
+	<div th:insert="fragments/Footer :: footer"></div>
 </body>
 </html>

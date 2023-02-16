@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+.Valuations{
+    display: grid;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    margin-top:1%;
+    margin-bottom:3%;
+}
+
+.Valuations__BoxTitulo{
+	width:500%;
+	text-align:center;
+	font-size:24px;
+}
+.Valuations__Formulario{
+        background-color:#B5C78B;
+        width: 500%;
+        height: 500px;
+        display:flex;
+        flex-direction: column;
+}        
+       
+.Valuations__Formulario__Label{
+            color: #454142;
+            font-size: 20px;
+            width:65%;
+            margin:1%;
+            margin-left: 5%;
+        }
+
+.Valuations__Formulario__Input{
+            background-color: #454142;
+            color: #B5C78B;
+            width: 65%;
+            height: 15%;
+            margin:1%;
+            margin-left: 5%;
+        }
+
+.Valuations__Formulario__Select{
+            width: 25%;
+            margin:1%;
+            margin-left: 5%;
+        }
+
+.Valuations__Formulario__Textarea{
+            background-color: #454142;
+            color: #B5C78B;
+            width: 65%;
+            height: 50%;
+            margin:1%;
+            margin-left: 5%;
+            font-family:Arial;
+        }
+.Valuations__Formulario__Button{
+            background-color: #454142;
+            color: #B5C78B;
+            height: 15%;
+            width: 25%;
+            margin:2%;
+            margin-left: 5%;
+            
+        }
+        
+        
+@media(min-width:320px) and (max-width:767px){
+    .Valuations{}
+
+    .Valuations__Formulario{
+            width: 75%;
+            height: 450px;
+            margin-bottom: 3%;
+    }
+            
+   .Valuations__Formulario__Label{
+                width:65%;
+            }
+    
+     .Valuations__Formulario__Input{
+                height: 12%;
+            }
+    
+   .Valuations__Formulario__Textarea{
+                height: 30%;
+            }
+   .Valuations__Formulario__Button{
+                height: 10%;  
+            }
+   
+}
+
+
+@media(min-width:768px) and (max-width:1024px){
+        
+    .Valuations{}
+
+    .Valuations__Formulario{
+            width: 75%;
+            height: 450px;
+            margin-bottom: 3%;
+     }
+    .Valuations__Formulario__Label{
+                width:65%;
+            }
+    
+    .Valuations__Formulario__Input{
+                height: 12%;
+            }
+    
+   	.Valuations__Formulario__Textarea{
+                height: 30%;
+            }
+    .Valuations__Formulario__Button{
+                height: 10%;  
+            }
+    
+}

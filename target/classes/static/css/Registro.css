@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+.Check{
+	height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:2%;
+}
+
+.Check__Icon{
+	margin-right:4%;
+}
+
+.Check__Form{
+	width:40%;
+}
+
+.Check__Form__Datos{
+	margin-bottom: 3%;
+    
+}
+
+.Check__Form__Datos__Label{
+	margin-bottom:3%;
+	font-weight: bold;
+}
+
+.Check__Form__Datos__Box{
+	height: 45px;
+    width: 100%;
+    background-color:#444444;
+    color:#fff;
+}
+
+.Check__Form__Boton__Enviar{
+	float: right;
+    width: 180px;
+    height: 50px;
+    background-color: #444444;
+    color: #B5C78B;
+    font-weight: bold;
+    pointer-events: all;
+}
+
+
+
+
+
+
+
+
+
+
+

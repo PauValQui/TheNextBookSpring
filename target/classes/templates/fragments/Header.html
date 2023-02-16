@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8">
-<title>Insert title here</title>
-
+<meta charset="UTF-8">
+<title>The Next Book</title>
 </head>
 <body>
 	<!--Header estatico-->
@@ -17,25 +16,41 @@
               </div>
             </form>
             <div class="Header__FirstBox__ShopCart">
-                <a class="ShopCart__Link" href="/shopcart"><img class="Header__FirstBox__ShopCart__Link__Img" th:src="@{/images/IconosSVG/shopCart.png}" alt="Carrito"></a>           
+                <a class="ShopCart__Link" th:href="@{/shopcart}"><img class="Header__FirstBox__ShopCart__Link__Img" th:src="@{/images/IconosSVG/shopCart.png}" alt="Carrito"></a>           
             </div>
         </div>
         <div class="Header__NavBar">
           <ul class="Header__NavBar__ul">
             <li>
-              <a href='/search/libros'>Libros</a>
+              <a th:href='@{/search/libros}'>Libros</a>
             </li>
             <li>
-              <a href='/search/autores'>Autores</a>
+              <a th:href='@{/search/autores}'>Autores</a>
             </li>
             <li>
-              <a href='/contact'>Contacto</a>
+              <a th:href='@{/contact}'>Contacto</a>
             </li>
           </ul>
 
-          <button class="Header__NavBar__BotonInicio">
-            <a href='/Login' class="Header__NavBar__BotonInicio__Enlace">Inicio Sesión</a>
-          </button>
+			<div class="Header__NavBar__Login" th:if="${usuario.estatus == false}" >
+				<button class="Header__NavBar__Login__BotonInicio">
+	            	<a th:href='@{/login}' class="Header__NavBar__Login__BotonInicio__Enlace">Inicio Sesión</a>
+	          	</button>
+	          	
+	          	<!--  <div>
+				    <p>Logged as: <span sec:authentication="name"></span></p>
+				    <p>Has role: <span sec:authentication="authorities"></span></p>
+				    <div sec:authorize="hasAuthority('ROLE_USER')" th:insert="fragments/User :: user"></div>
+				    <div sec:authorize="hasAuthority('ROLE_ADMIN')" th:insert="fragments/Admin :: admin"></div>
+				    <a th:href="@{/logout}">Log out</a>
+				</div>-->
+			</div>
+			<div th:if="${usuario.estatus == true}" class="Header__NavBar__Login">
+				<p class="Header__NavBar__Login__Nombre">Hola <span th:text="${usuario.nombre}"></span></p>
+				<button class="Header__NavBar__Login__BotonLogout">
+					<a th:href="@{/logout}" th:text="Logout"></a>
+				</button>
+			</div>
         </div>
     </div>
 </body>

@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+.Buscador{
+    margin-bottom: 2%;
+}   
+.Buscador__BoxLibros__Libro{
+            width: 15%;
+            background-color: #B5C78B;
+            display: inline-table;
+            margin: 2%;
+
+}
+.Buscador__BoxLibros__Libro__Img{
+                width: 50%;
+                margin-left: 10%;
+}
+.Buscador__BoxLibros__Libro__Img a img{
+                    width: 150%;
+                    margin-top: 5%;
+                }
+.Buscador__BoxLibros__Libro__Box{
+	margin:2%;
+	display:grid;
+}
+
+.Buscador__BoxLibros__Libro__Box__Titulo{
+                font-size: 24px;
+                color: #454142;
+                font-weight: bold;
+                margin-left: 10%;
+                text-decoration: none;
+            }
+
+.Buscador__BoxLibros__Libro__Box__Autor{
+                margin-left: 10%;
+                font-size: 20px;
+                color:#454142;
+                text-decoration: none;
+            }
+
+.Buscador__BoxLibros__Libro__BoxCategoria{
+                margin-left: 10%;
+			    margin-bottom: 8%;
+			    margin-right: 10%;
+                height: 25px;
+                background-color: #DEDEDE;
+}
+.Buscador__BoxLibros__Libro__BoxCategoria a{
+                    margin: 2%;
+                    color: #454142;
+                    font-weight: bold;
+                    text-decoration: none;
+}
+
+.Buscador__BoxAutores__Autor{
+            width: 250px;
+            height: 450px;
+            background-color: #B5C78B;
+            display: inline-grid;
+            margin-top: 2%;
+            margin-left: 4%;
+}
+.Buscador__BoxAutores__Autor__Img{
+                width: 215px;
+                height: 275px;
+                margin-left: 7%;
+}
+.Buscador__BoxAutores__Autor__Img img{
+                    width: 215px;
+                    height: 270px;
+                    margin-top: 3%;
+                }
+            
+.Buscador__BoxAutores__Autor__Nombre{
+                text-align: center;
+                font-size: 24px;
+                color: #454142;
+                font-weight: bold;
+                margin-left: 7%;
+                margin-right: 7%; 
+                text-decoration: none; 
+}

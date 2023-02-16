@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8">
-<title>The Next Book</title>
-<link href="/../css/Header.css" rel="stylesheet">
-<link href="/../css/Footer.css" rel="stylesheet">
-<link href="/../css/Home.css" rel="stylesheet">
+	<meta charset="utf-8">
+	<title>The Next Book</title>
+	<link th:href="@{/../css/Header.css}" rel="stylesheet">
+	<link th:href="@{/../css/Footer.css}" rel="stylesheet">
+	<link th:href="@{/../css/Home.css}" rel="stylesheet">
 </head>
 <body>
 	<div th:insert="fragments/Header :: header"></div>
@@ -18,8 +18,8 @@
                 </div>
         </div>
     </div>
-    
-    <div class="Novedades">
+	
+	<div class="Novedades">
         <div class="Novedades__BoxTitulo">
             <p>--Últimas Novedades--</p>
         </div>
@@ -29,12 +29,14 @@
                    	<div class="Novedades__BoxLibros__Libros__Libro" >           
 	                    <div class="Novedades__BoxLibros__Libro__Img">
 	                        <a th:href="@{/view/} + ${libro.id}"><img th:src="@{/images/FotosLibros/} + ${libro.foto}" /></a> <!--Desde el controlador mando una lista de libros con atributos especificos 
-	                            	                                                                       que voy a mostrar.-->
+	             													    	                                                                       que voy a mostrar.-->
 	                    </div>  
-	                    <a class="Novedades__BoxLibros__Libro__Titulo" th:href="@{/view/} + ${libro.id}" th:text="${libro.titulo}"></a>
-	                    <a class="Novedades__BoxLibros__Libro__Autor" th:href="@{/search/} + ${libro.autor.id}" th:text="${libro.autor.nombre}"></a>
-	                    <div class="Novedades__BoxLibros__Libro__BoxCategoria">
-	                        <a th:href="@{/view/} + ${libro.categoria.id}" th:text="${libro.categoria.tipo}"></a>
+	                   <div class="Novedades__BoxLibros__Libro__Box">
+							<a class="Novedades__BoxLibros__Libro__Box__Titulo" th:href="@{/view/} + ${libro.id}" th:text="${libro.titulo}"></a>
+			            	<a class="Novedades__BoxLibros__Libro__Box__Autor" th:href="@{/search/} + ${libro.autor.nombre}" th:text="${libro.autor.nombre}"></a>					
+						</div>
+				        <div class="Novedades__BoxLibros__Libro__BoxCategoria">
+	                        <a th:href="@{/search/{busqueda} (busqueda = ${libro.categoria.tipo})}" th:text="${libro.categoria.tipo}"></a>
 	                    </div>
                 	</div>
                 </div>
@@ -49,14 +51,14 @@
         <!--Bucle limitado a 3 porque solo quiero mostrar los 3 primeros autores incluidos en mi base de datos-->
                 <div class="Autores__Box__Autor" th:each="autor, iterator: ${autores}" th:if="${iterator.index >= iterator.size - 4}">
                     <div class="Autores__Box__Autor__Img">
-                        <a th:href="@{/search/} + ${autor.id}"><img th:src="@{/images/FotosAutores/} + ${autor.foto}" /></a>
+                        <a th:href="@{/search/{busqueda} (busqueda = ${autor.nombre})}"><img th:src="@{/images/FotosAutores/} + ${autor.foto}" /></a>
                     </div>
-                    <a class="Autores__Box__Autor__Nombre" th:href="@{/search/} + ${autor.id}" th:text="${autor.nombre}"></a>
+                    <a class="Autores__Box__Autor__Nombre" th:href="@{/search/{busqueda} (busqueda = ${autor.nombre})}" th:text="${autor.nombre}"></a>
                 </div>
         </div>
     </div>
-    
-    <div th:insert="fragments/Footer :: footer"></div>
+	
+	<div th:insert="fragments/Footer :: footer"></div>
     
     <script th:src="@{js/home.js}"></script>
 </body>
