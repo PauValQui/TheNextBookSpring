@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>The Next Book</title>
+	<meta charset="UTF-8">
+	<title>The Next Book</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
 <body>
 	<!--Header estatico-->
@@ -16,7 +17,7 @@
               </div>
             </form>
             <div class="Header__FirstBox__ShopCart">
-                <a class="ShopCart__Link" th:href="@{/shopcart}"><img class="Header__FirstBox__ShopCart__Link__Img" th:src="@{/images/IconosSVG/shopCart.png}" alt="Carrito"></a>           
+                <a class="ShopCart__Link" th:href="@{/shopcart}"><img class="Header__FirstBox__ShopCart__Link__Img" alt="" th:src="@{../images/IconosSVG/shopping cart.svg}"></a>           
             </div>
         </div>
         <div class="Header__NavBar">
@@ -43,6 +44,9 @@
 				    <div sec:authorize="hasAuthority('ROLE_USER')" th:insert="fragments/User :: user"></div>
 				    <div sec:authorize="hasAuthority('ROLE_ADMIN')" th:insert="fragments/Admin :: admin"></div>
 				    <a th:href="@{/logout}">Log out</a>
+				    
+				    <i class="fa-duotone fa-xmark"></i>
+				    
 				</div>-->
 			</div>
 			<div th:if="${usuario.estatus == true}" class="Header__NavBar__Login">
@@ -50,8 +54,20 @@
 				<button class="Header__NavBar__Login__BotonLogout">
 					<a th:href="@{/logout}" th:text="Logout"></a>
 				</button>
-			</div>
+				<div class="Header__NavBar__Admin" th:if="${usuario.role.id == 1}"> 
+					<div class="Header__NavBar__Admin__Nav" id="btnMenu">
+						<img class="Header__NavBar__Admin__Nav__Img" th:src="@{../images/IconosSVG/icons8-menú.svg}"/>
+					</div>
+					<ul class="Header__NavBar__Admin__Menu" id="menu">
+						<li><a th:href="@{/}" >Introducir libros, autores o categorias</a></li>
+						<li><a th:href="@{/}" th:text="Usuarios"></a></li>
+						<li><a th:href="@{/}" th:text="Facturas"></a></li>
+					</ul>
+				</div>
+			</div >
+			
         </div>
     </div>
+    
 </body>
 </html>

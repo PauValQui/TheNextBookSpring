@@ -31,6 +31,7 @@ public class Usuario{
 		
 		@OneToOne
 		@JoinColumn(name="idRole")
+		@Value("${usuario.role.id:0}")
 		private Role role;
 
 		public Integer getId() {

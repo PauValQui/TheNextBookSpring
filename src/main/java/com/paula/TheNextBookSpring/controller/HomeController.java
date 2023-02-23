@@ -82,8 +82,6 @@ public class HomeController {
 		
 		usuario = serviceusuario.obtenerUsuarioPorEstatus().get();
 		
-		System.out.println(usuario.getNombre());
-		
 		serviceusuario.bloquear(usuario.getId());
 		
 		return "redirect:/";
