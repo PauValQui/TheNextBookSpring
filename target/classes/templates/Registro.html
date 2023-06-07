@@ -50,6 +50,11 @@
             <div class="Check__Form__Boton">
                 <button type="submit" class="Check__Form__Boton__Enviar" th:text="@{Registrate}"></button>
             </div>
+            
+            <div th:if="${msg != null}" class='Check__Form__Errores' >
+					<p th:text="${msg}"></p>
+			</div>
+            
         </form>
     </div>
 	

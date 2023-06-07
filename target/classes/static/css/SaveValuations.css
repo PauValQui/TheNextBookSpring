@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+
+
 .Valuations{
     display: grid;
     width: 100%;
@@ -9,16 +11,19 @@
     align-content: center;
     margin-top:1%;
     margin-bottom:3%;
+    
 }
 
 .Valuations__BoxTitulo{
 	width:500%;
 	text-align:center;
 	font-size:24px;
+	color:#454142;
+	font-weight:bold;
 }
 .Valuations__Formulario{
-        background-color:#B5C78B;
-        width: 500%;
+		
+        width: 400%;
         height: 500px;
         display:flex;
         flex-direction: column;
@@ -27,7 +32,7 @@
 .Valuations__Formulario__Label{
             color: #454142;
             font-size: 20px;
-            width:65%;
+            width:80%;
             margin:1%;
             margin-left: 5%;
         }
@@ -35,7 +40,7 @@
 .Valuations__Formulario__Input{
             background-color: #454142;
             color: #B5C78B;
-            width: 65%;
+            width: 80%;
             height: 15%;
             margin:1%;
             margin-left: 5%;
@@ -45,17 +50,21 @@
             width: 25%;
             margin:1%;
             margin-left: 5%;
+            color: #B5C78B;
         }
 
 .Valuations__Formulario__Textarea{
             background-color: #454142;
             color: #B5C78B;
-            width: 65%;
+            width: 80%;
             height: 50%;
             margin:1%;
             margin-left: 5%;
             font-family:Arial;
         }
+.Valuations__Formulario__Errores{
+	color:red;
+}
 .Valuations__Formulario__Button{
             background-color: #454142;
             color: #B5C78B;
@@ -68,7 +77,6 @@
         
         
 @media(min-width:320px) and (max-width:767px){
-    .Valuations{}
 
     .Valuations__Formulario{
             width: 75%;

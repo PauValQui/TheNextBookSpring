@@ -37,26 +37,28 @@
 
 
 	<div class="Valuations">
-		<div class="Valuations__Button">
-			<a  th:text="@{Introduce una valoracion}" th:href="@{/saveValuations/{id} (id = ${libro.id})}"></a>
+		<div class="Valuations__Button" th:if="${usuario.estatus != false}">
+			<a  th:text="@{Introduce una valoracion}" th:href="@{/saveValuations/{idLibro} (idLibro=${libro.id})}"></a>
 		</div>
 	</div>
     
 
         <!--Bucle valoraciones de este libro en el que muestro las valoraciones que hay relacionadas con este libro-->
 
-            <div class="ViewValuations" th:unless="${valoracion == null}">
-            	<div class="ViewValuations__BoxValuations">
-    	            <div class="ViewValuations__BoxValuations__Valuations">
-                        <p class="ViewValuations__BoxValuations__Valuations__Titulo" th:text="@{valoracion.titulo}"></p>
-                        <p class="ViewValuations__BoxValuations__Valuations__Puntuacion" th:text="@{valoracion.puntuacion}"></p>
+            <div class="ViewValuations" th:unless="${valoraciones == null}">
+    	            <div class="ViewValuations__BoxValuations__Valuations" th:each="valoracion, iterator: ${valoraciones}">
+                        <p class="ViewValuations__BoxValuations__Valuations__Titulo" th:text="${valoracion.titulo}"></p>
+                        <div class="ViewValuations__BoxValuations__Valuations__Puntuacion">
+                        	<p th:text="${valoracion.puntuacion}"></p>
+                        	<img  class="ViewValuations__BoxValuations__Valuations__Puntuacion__Img" alt="" th:src="@{../images/IconosSVG/estrella.png}" />
+                        </div>
                         <div class="ViewValuations__BoxValuations__Valuations__Comentario">
-     	                   <p th:text="@{valoracion.comentario}"></p>
+     	                   <p th:text="${valoracion.comentario}"></p>
                         </div>
                      </div>
-  	              </div> 
     	        </div>
 	
 	<div th:insert="fragments/Footer :: footer"></div>
+	<script th:src="@{/js/menu.js}"></script>
 </body>
 </html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+	<title>The Next Book</title>
+	<link th:href="@{/../css/Header.css}" rel="stylesheet">
+	<link th:href="@{/../css/Footer.css}" rel="stylesheet">
+	<link th:href="@{/../css/ViewUser.css}" rel="stylesheet">
+</head>
+<body>
+	<div th:insert="fragments/Header :: header"></div>
+	
+	<div class="NavBar">
+		<ul class="NavBar__ul">
+			<li><a th:href='@{/usuarios/user}'>Usuarios</a></li>
+			<li><a th:href='@{/usuarios/admin}'>Administradores</a></li>
+
+		</ul>
+	</div>
+	
+	<div th:if="${valor == 'user'}">
+		<table>
+			<tr>
+				<th>Email</th>
+				<th>Nombre de Usuario</th>
+				<th>Nombre Completo</th>
+				<th>Hacer Administrador</th>
+				<th>Eliminar</th>
+			</tr>
+			<tr th:each="user, iterator: ${user}">
+				<td th:text=${user.email}></td>
+				<td th:text=${user.username}></td>
+				<td th:text=${user.nombre}></td>
+				<td>
+					<div>
+						<a th:href="@{/cambiarAdmin}" th:text="Cambiar"></a>
+					</div>
+				</td>
+				<td>
+					<div>
+						<a th:href="@{/eliminarUser}" th:text="Eliminar"></a>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	<div th:if="${valor == 'admin'}">
+		<table>
+			<tr>
+				<th>Nombre de Administrador</th>
+				<th>Quitar de Administrador</th>
+				<th>Eliminar</th>
+			</tr>
+			<tr th:each="user, iterator: ${user}">
+				<td th:text=${user.username}></td>
+				<td th:text=${user.nombre}></td>
+				<td>
+					<div>
+						<a th:href="@{/cambiarAdmin}" th:text="Quitar"></a>
+					</div>
+				</td>
+				<td>
+					<div>
+						<a th:href="@{/eliminarUser}" th:text="Eliminar"></a>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	<div th:insert="fragments/Footer :: footer"></div>
+    <script th:src="@{js/menu.js}"></script>
+</body>
+</html>

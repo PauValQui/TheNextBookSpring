@@ -35,16 +35,13 @@
                     <input type='submit' value="Iniciar Sesión" class="Login__Form__Boton__Enviar"/>
                 </div>
                 
-                <div th:if="${#fields.hasErrors('*')}" class='Login__Form__Errores' >
-					Por favor corrija los siguientes errores:
-					<ul>
-						<li th:each="err : ${#fields.errors('*')}" th:text="${err}" />
-					</ul>
+                <div th:if="${msgC != null or msgU != null}" class='Login__Form__Errores' >
+					<p th:text="${msgC}"></p>
+					<p th:text="${msgU}"></p>
 				</div>
             </form>
         </div>
 
 	 <div th:insert="fragments/Footer :: footer"></div>
-
 </body>
 </html>

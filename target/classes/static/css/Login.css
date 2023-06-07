@@ -55,10 +55,6 @@
     pointer-events: all;
 }
 
-.Login__Form__Error-Cont{
-	
-}
-
-.Login__Form__Error-Login{
-	
+.Login__Form__Errores p{
+	color:red;
 }

@@ -2,6 +2,7 @@
 
 .Buscador{
     margin-bottom: 2%;
+    
 }   
 .Buscador__BoxLibros__Libro{
             width: 15%;
@@ -53,30 +54,35 @@
 }
 
 .Buscador__BoxAutores__Autor{
-            width: 250px;
-            height: 450px;
-            background-color: #B5C78B;
-            display: inline-grid;
-            margin-top: 2%;
-            margin-left: 4%;
+        width: 15%;
+    height: 300px;
+    background-color: #B5C78B;
+    margin-bottom: 1%;
+    display: inline-flex;
+    align-items: stretch;
+    justify-content: space-evenly;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    margin-right: 4%;
+    margin-left: 5%;
+	margin-top:1%;
 }
 .Buscador__BoxAutores__Autor__Img{
-                width: 215px;
-                height: 275px;
-                margin-left: 7%;
+            width: 100%;
+	    	display: grid;
+	    	justify-content: space-around;
 }
 .Buscador__BoxAutores__Autor__Img img{
-                    width: 215px;
-                    height: 270px;
-                    margin-top: 3%;
+           width: 200px;
+           height: 200px;
+           margin-top: 3%;
                 }
             
 .Buscador__BoxAutores__Autor__Nombre{
-                text-align: center;
+               text-align: center;
                 font-size: 24px;
                 color: #454142;
                 font-weight: bold;
-                margin-left: 7%;
-                margin-right: 7%; 
                 text-decoration: none; 
 }

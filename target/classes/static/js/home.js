@@ -11,5 +11,8 @@ function showImg() {
        ImgIndex++;
        if(ImgIndex > slides.length) {ImgIndex = 1}
        slides[ImgIndex-1].style.display = "block";
-       setTimeout(showImg,8000);
+       setTimeout(showImg,6000);
 }
+
+
+

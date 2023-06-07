@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+.NavBar{
+	padding-top:1%;
+    height: 40%;
+    margin:auto;
+    display: flex;
+}
+
+.NavBar__ul{
+	
+	width: 70%;
+    text-align: center;
+    margin:auto;
+}
+
+.NavBar__ul li {
+	background-color: #454142;
+	display: inline-flex;
+    border-radius: 8px;
+    transition: 0.3s ease;
+    margin-left: 10px;
+}
+
+.NavBar__ul li:hover {
+	background-color: #B5C78B;
+}
+
+.NavBar__ul li a:hover{
+	color:#454142;
+}
+
+.NavBar__ul li a{
+	display: inline-flex;
+    text-decoration: none;
+    padding: 1rem 1rem;
+    font-size: 1rem;
+    color: #B5C78B;
+	outline: none;
+}
+
+.Introducir{
+	height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:2%;
+}
+.Introducir__Formulario{
+	width:40%;
+}
+.Introducir__Formulario__Label{
+	margin-bottom:3%;
+	font-weight: bold;
+}
+
+.Introducir__Formulario__Input{
+	height: 45px;
+    width: 100%;
+    margin-bottom: 3%;
+    background-color:#444444;
+    color:#B5C78B;
+}
+
+.Introducir__Formulario__Select{
+	width: 101%;
+    height: 45px;
+    background-color: #444444;
+    color: #B5C78B;
+    margin-bottom:3%;
+}
+
+.Introducir__Formulario__Select__Options{
+	height:45px;
+}
+
+.Introducir__Formulario__Boton__Enviar{
+	float: right;
+    width: 180px;
+    height: 50px;
+    background-color: #444444;
+    color: #B5C78B;
+    font-weight: bold;
+    pointer-events: all;
+}
