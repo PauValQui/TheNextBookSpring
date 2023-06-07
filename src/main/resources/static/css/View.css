@@ -78,7 +78,7 @@
   	.View__ShopBox__Button__BotonCompra{
    		width: 100%;
         height: 50px;
-            font-size: 20px;
+            font-size: 16px;
             color: #B5C78B;
             background-color: #454142;
             margin-bottom: 10%;
@@ -93,10 +93,10 @@
 
 .Valuations__Button{
 	width: 15%;
-    height: 35px;
+    height: 50px;
     background-color: #454142;
     position: absolute;
-    /* text-align: center; */
+    text-align: center;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -109,6 +109,43 @@
 			font-size: 20px;
             color: #B5C78B;
             text-decoration:none;
+}
+
+.ViewValuations{
+	width:100%;
+	height: 300px;
+	margin: 0;
+}
+
+.ViewValuations__BoxValuations__Valuations{
+	width: 45%;
+    background-color: #DEDEDE;
+    display:block;
+    margin:auto;
+}
+
+.ViewValuations__BoxValuations__Valuations__Titulo{
+	 color: #B5C78B;
+	 font-weight:bold;
+	 text-decoration: underline;
+	 margin-left: 12px;
+}
+
+.ViewValuations__BoxValuations__Valuations__Puntuacion{
+	width:50%;
+	display:inline-flex;
+	align-items:center;
+	margin-left: 12px;
+}
+
+.ViewValuations__BoxValuations__Valuations__Puntuacion__Img{
+	width:5%;
+	height:20px;
+	margin-left:5px;
+}
+
+.ViewValuations__BoxValuations__Valuations__Comentario{
+	margin-left: 12px;
 }
 
 @media(min-width:320px) and (max-width:767px){
@@ -163,6 +200,7 @@
     .View__BoxDescription{
             width: 100%;
             text-align: center;
+            
         }
     .View__BoxDescription__Categoria{
                 background-color: #454142;
@@ -171,9 +209,8 @@
             }
     .View__BoxDescription__Sinopsis{
                margin: 2%;
-            }    
-        
-   .View__ShopBox{}
+               font-size:18px;
+            }
    
    .View__ShopBox__Titulo{
             font-size: 30px;

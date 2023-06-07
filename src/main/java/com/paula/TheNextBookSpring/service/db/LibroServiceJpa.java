@@ -5,9 +5,15 @@ import java.util.LinkedList;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
 import org.springframework.stereotype.Service;
 
 import com.paula.TheNextBookSpring.model.Libro;
@@ -72,6 +78,31 @@ public class LibroServiceJpa implements ILibroService{
 		
 		return librosPorCategoria;
 	}
+
+	@Override
+	public Libro findByTitulo(String Titulo) {
+		List<Libro> libros = obtenerLibros();
+		Libro libroEncontrado = new Libro();
+		boolean indicador = false;
+		
+		for (Libro libro : libros) {
+			if(libro.getTitulo().equals(Titulo)) {
+				indicador= true;
+				libroEncontrado = libro;
+			}
+		}
+		
+		if(indicador == true) {
+			return libroEncontrado;
+		}else {
+			return libroEncontrado;
+		}
+		
+		
+	}
+
+
+	
 	
 	
 }

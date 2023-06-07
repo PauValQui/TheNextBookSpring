@@ -33,6 +33,10 @@
     color:#fff;
 }
 
+.Check__Form__Errores p{
+	color:red;
+}
+
 .Check__Form__Boton__Enviar{
 	float: right;
     width: 180px;

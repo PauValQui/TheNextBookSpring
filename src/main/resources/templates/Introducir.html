@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>The Next Book</title>
+	<link th:href="@{/../css/Header.css}" rel="stylesheet">
+	<link th:href="@{/../css/Footer.css}" rel="stylesheet">
+	<link th:href="@{/../css/Introducir.css}" rel="stylesheet">
+</head>
+<body>
+	<div th:insert="fragments/Header :: header"></div>
+	
+	<div class="NavBar">
+		<ul class="NavBar__ul">
+			<li><a th:href='@{/introducir/libros}'>Libro</a></li>
+			<li><a th:href='@{/introducir/autor}'>Autor</a></li>
+			<li><a th:href='@{/introducir/categoria}'>Categoria</a></li>
+		</ul>
+	</div>
+	
+	<div th:if="${valor == 'libros'}" class="Introducir">
+		<form th:action="@{/guardar/libro}" th:object="${libro}" method="POST" class="Introducir__Formulario">
+		
+			<label class="Introducir__Formulario__Label">Titulo: </label>
+           	<input type="text" name="titulo" th:field="*{titulo}" placeholder="Titulo" class="Introducir__Formulario__Input"/>
+            
+            <label class="Introducir__Formulario__Label">Sinopsis: </label>
+           	<input type="text" name="sinopsis" th:field="*{sinopsis}" placeholder="Sinopsis" class="Introducir__Formulario__Input"/>
+            
+            
+			<label class="Introducir__Formulario__Label">Foto: </label>
+           	<input type="text" name="foto" th:field="*{foto}" placeholder="Nombre del archivo" class="Introducir__Formulario__Input"/>
+            
+            <label class="Introducir__Formulario__Label">Precio: </label>
+           	<input type="text" name="precio" th:field="*{precio}" placeholder="Precio" class="Introducir__Formulario__Input"/>
+            
+            <label class="Introducir__Formulario__Label">Categoria:</label>
+            <select class="Introducir__Formulario__Select" name="categoria" th:field="*{categoria.id}" >
+                <option class= "Introducir__Formulario__Select__Options" th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.tipo}"></option>
+            </select>
+            
+            <label class="Introducir__Formulario__Label">Autor:</label>
+            <select class="Introducir__Formulario__Select" name="autor" th:field="*{autor.id}">
+                <option class= "Introducir__Formulario__Select__Options" th:each="autor : ${autores}" th:value="${autor.id}" th:text="${autor.nombre}"></option>
+            </select>
+            
+            <div th:if="${msg != null}" class='Introducir__Formulario__Errores' >
+					<p th:text="${msg}"></p>
+			</div>
+            
+            <div class="Introducir__Formulario__Boton">
+                <button type="submit" class="Introducir__Formulario__Boton__Enviar" th:text="@{Introducir}"></button>
+            </div>
+		</form>
+	</div>
+	
+	<div th:if="${valor == 'autor'}" class="Introducir">
+		<form th:action="@{/guardar/autor}" th:object="${autor}" method="POST" class="Introducir__Formulario">
+		
+			<label class="Introducir__Formulario__Label">Nombre de la foto(.jpg): </label>
+           	<input type="text" name="foto" th:field="*{foto}" placeholder="Foto" class="Introducir__Formulario__Input"/>
+            
+            <label class="Introducir__Formulario__Label">Nombre del autor: </label>
+           	<input type="text" name="nombre" th:field="*{nombre}" placeholder="Nombre del autor" class="Introducir__Formulario__Input"/>
+            
+            <div th:if="${msg != null}" class='Introducir__Formulario__Errores' >
+					<p th:text="${msg}"></p>
+			</div>
+            
+            <div class="Introducir__Formulario__Boton">
+                <button type="submit" class="Introducir__Formulario__Boton__Enviar" th:text="@{Introducir}"></button>
+            </div>
+		</form>
+	</div>
+	
+	<div th:if="${valor == 'categoria'}" class="Introducir">
+		<form th:action="@{/guardar/categoria}" th:object="${categoria}" method="POST" class="Introducir__Formulario">
+		
+			<label class="Introducir__Formulario__Label">Tipo: </label>
+           	<input type="text" name="tipo" th:field="*{tipo}" placeholder="Tipo" class="Introducir__Formulario__Input"/>
+            
+            <div th:if="${msg != null}" class='Introducir__Formulario__Errores' >
+					<p th:text="${msg}"></p>
+			</div>
+            
+            <div class="Introducir__Formulario__Boton">
+                <button type="submit" class="Introducir__Formulario__Boton__Enviar" th:text="@{Introducir}"></button>
+            </div>
+		</form>
+	</div>
+	
+	<div th:insert="fragments/Footer :: footer"></div>
+	<script th:src="@{/js/menu.js}"></script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 package com.paula.TheNextBookSpring.service.db;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -78,6 +79,20 @@ public class UsuarioServiceJpa implements IUsuarioService{
 	@Override
 	public void activar(int idUsuario) {
 		repo.unlock(idUsuario);
+	}
+
+	@Override
+	public List<Usuario> obtenerPorRole(Integer id) {
+		List<Usuario> AllUsers = repo.findAll();
+		List<Usuario> Users = new ArrayList<Usuario>();
+		
+		for (Usuario usuario : AllUsers) {
+			if(usuario.getRole().getId() == id) {
+				Users.add(usuario);
+			}
+		}
+		
+		return Users;
 	}
 
 	

@@ -16,12 +16,12 @@
             <p>-- Valoraciones --</p>
         </div>
         
-        <form th:action="@{/saveValuations}" method="POST" class="Valuations__Formulario"> 
+        <form th:action="@{/saveValuations}" th:object="${valoracion}" method="POST" class="Valuations__Formulario"> 
             <label class="Valuations__Formulario__Label">Titulo de la valoración:</label>
-            <input type="text" name="titulo" placeholder="Titulo" class="Valuations__Formulario__Input"/>
+            <input type="text" name="titulo" th:field="*{titulo}" placeholder="Titulo" class="Valuations__Formulario__Input"/>
             
             <label class="Valuations__Formulario__Label">Puntuación</label>
-            <select class="Valuations__Formulario__Select" name="puntuacion">
+            <select class="Valuations__Formulario__Select" name="puntuacion" th:field="*{puntuacion}">
                 <option value="1">1 estrella</option>
                 <option value="2">2 estrellas</option>
                 <option value="3">3 estrellas</option>
@@ -30,13 +30,19 @@
             </select>
 
             <label class="Valuations__Formulario__Label">Reseña:</label>
-            <textarea name="comentario" class="Valuations__Formulario__Textarea" cols="20" placeholder="Introduce tu reseña:"></textarea>
+            <textarea name="comentario" class="Valuations__Formulario__Textarea" th:field="*{comentario}" cols="20" placeholder="Introduce tu reseña:"></textarea>
 
-            <input type="hidden" name="libro_id" th:value="@{libro.id}">
+            <input type="hidden" name="idLibro" th:value="${idLibro}">
+            
+            <div th:if="${msg != null}" class='Valuations__Formulario__Errores' >
+					<p th:text="${msg}"></p>
+			</div>
+            
             <input type="submit" value="Enviar" class="Valuations__Formulario__Button"/>
         </form>
      </div>  
      
      <div th:insert="fragments/Footer :: footer"></div>
+     <script th:src="@{/js/menu.js}"></script>
 </body>
 </html>

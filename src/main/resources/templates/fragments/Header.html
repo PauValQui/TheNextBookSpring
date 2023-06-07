@@ -50,20 +50,28 @@
 				</div>-->
 			</div>
 			<div th:if="${usuario.estatus == true}" class="Header__NavBar__Login">
+				
 				<p class="Header__NavBar__Login__Nombre">Hola <span th:text="${usuario.nombre}"></span></p>
+				
+				<div class="Header__NavBar__Admin" th:if="${usuario.role.id == 1}"> 
+					<div class="Header__NavBar__Admin__Nav" id="btnMenu">
+						<ul class="Header__NavBar__Admin__Nav__Btn-menu" id="btn">
+					        <li id="spn1"></li>
+					        <li id="spn2"></li>
+					        <li id="spn3"></li>
+					    </ul>
+					</div>
+					<ul class="Header__NavBar__Admin__Menu" id="menu">
+						<li><a th:href="@{/introducir/libros}" >Introducir libros, autores o categorias</a></li>
+						<li><a th:href="@{/usuarios/user}" th:text="Usuarios"></a></li>
+						<li><a th:href="@{/facturas}" th:text="Facturas"></a></li>
+					</ul>
+				</div>
+				
 				<button class="Header__NavBar__Login__BotonLogout">
 					<a th:href="@{/logout}" th:text="Logout"></a>
 				</button>
-				<div class="Header__NavBar__Admin" th:if="${usuario.role.id == 1}"> 
-					<div class="Header__NavBar__Admin__Nav" id="btnMenu">
-						<img class="Header__NavBar__Admin__Nav__Img" th:src="@{../images/IconosSVG/icons8-menú.svg}"/>
-					</div>
-					<ul class="Header__NavBar__Admin__Menu" id="menu">
-						<li><a th:href="@{/}" >Introducir libros, autores o categorias</a></li>
-						<li><a th:href="@{/}" th:text="Usuarios"></a></li>
-						<li><a th:href="@{/}" th:text="Facturas"></a></li>
-					</ul>
-				</div>
+				
 			</div >
 			
         </div>
